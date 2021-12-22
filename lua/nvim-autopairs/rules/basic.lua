@@ -33,6 +33,7 @@ local function setup(opt)
         Rule('"""', '"""', { 'python', 'elixir', 'julia' }),
         basic("'", "'", '-rust')
             :with_pair(cond.not_before_regex("%w")),
+            :with_pair(cond.not_before_regex("^#$")),
         basic("'", "'", 'rust')
             :with_pair(cond.not_before_regex("[%w<&]"))
             :with_pair(cond.not_after_text(">")),
